@@ -36,7 +36,7 @@ int main()
     unsigned short alto_in = 3;
     unsigned char jpg_reint = 0x06;
     
-    std::cout << "Right\n";
+    std::cout << "(Red Layer)\nRight\n";
     if (jpg_reint == 0x06)
     {
         std::string rgb_no_aj_2 = rgb_no_aj;
