@@ -1,9 +1,41 @@
 #include <iostream>
 #include <string>
 
+std::string rgb_no_aj;
+
+void rgb_reord()
+{
+    rgb_no_aj[0] = 0x01;
+    rgb_no_aj[1] = 0x01;
+    rgb_no_aj[2] = 0x01;
+    rgb_no_aj[3] = 0x02;
+    rgb_no_aj[4] = 0x02;
+    rgb_no_aj[5] = 0x02;
+    rgb_no_aj[6] = 0x03;
+    rgb_no_aj[7] = 0x03;
+    rgb_no_aj[8] = 0x03;
+    rgb_no_aj[9] = 0x04;
+    rgb_no_aj[10] = 0x04;
+    rgb_no_aj[11] = 0x04;
+    rgb_no_aj[12] = 0x05;
+    rgb_no_aj[13] = 0x05;
+    rgb_no_aj[14] = 0x05;
+    rgb_no_aj[15] = 0x06;
+    rgb_no_aj[16] = 0x06;
+    rgb_no_aj[17] = 0x06;
+    rgb_no_aj[18] = 0x07;
+    rgb_no_aj[19] = 0x07;
+    rgb_no_aj[20] = 0x07;
+    rgb_no_aj[21] = 0x08;
+    rgb_no_aj[22] = 0x08;
+    rgb_no_aj[23] = 0x08;
+    rgb_no_aj[24] = 0x09;
+    rgb_no_aj[25] = 0x09;
+    rgb_no_aj[26] = 0x09;
+}
+
 int main()
 {
-    std::string rgb_no_aj;
     rgb_no_aj.push_back(0x01);
     rgb_no_aj.push_back(0x01);
     rgb_no_aj.push_back(0x01);
@@ -34,6 +66,7 @@ int main()
     
     unsigned short ancho_in = 3;
     unsigned short alto_in = 3;
+    
     unsigned char jpg_reint = 0x06;
     
     std::cout << "(Red Layer)\nRight\n";
@@ -58,6 +91,7 @@ int main()
     }
     
     std::cout << std::endl;
+    rgb_reord();
     jpg_reint = 0x03;
     
     std::cout << "180°\n";
@@ -82,6 +116,7 @@ int main()
     }
     
     std::cout << std::endl;
+    rgb_reord();
     jpg_reint = 0x08;
     
     std::cout << "Left\n";
