@@ -1,71 +1,25 @@
 #include <iostream>
 #include <string>
 
-std::string rgb_conv;
+unsigned short ancho_in = 3;
+unsigned short alto_in = 3;
+
+std::string rgb_conv(ancho_in * alto_in * 3, '\0');
 
 void rgb_reord()
 {
-    rgb_conv[0] = 0x01;
-    rgb_conv[1] = 0x01;
-    rgb_conv[2] = 0x01;
-    rgb_conv[3] = 0x02;
-    rgb_conv[4] = 0x02;
-    rgb_conv[5] = 0x02;
-    rgb_conv[6] = 0x03;
-    rgb_conv[7] = 0x03;
-    rgb_conv[8] = 0x03;
-    rgb_conv[9] = 0x04;
-    rgb_conv[10] = 0x04;
-    rgb_conv[11] = 0x04;
-    rgb_conv[12] = 0x05;
-    rgb_conv[13] = 0x05;
-    rgb_conv[14] = 0x05;
-    rgb_conv[15] = 0x06;
-    rgb_conv[16] = 0x06;
-    rgb_conv[17] = 0x06;
-    rgb_conv[18] = 0x07;
-    rgb_conv[19] = 0x07;
-    rgb_conv[20] = 0x07;
-    rgb_conv[21] = 0x08;
-    rgb_conv[22] = 0x08;
-    rgb_conv[23] = 0x08;
-    rgb_conv[24] = 0x09;
-    rgb_conv[25] = 0x09;
-    rgb_conv[26] = 0x09;
+    for(unsigned int iter_conv = 0; iter_conv < rgb_conv.size() / 3; iter_conv++)
+    {
+        for(unsigned short cont_rgb = 0; cont_rgb < 3; cont_rgb++)
+        {
+            rgb_conv[(iter_conv * 3) + cont_rgb] = iter_conv + 1;
+        }
+    }
 }
 
 int main()
 {
-    rgb_conv.push_back(0x01);
-    rgb_conv.push_back(0x01);
-    rgb_conv.push_back(0x01);
-    rgb_conv.push_back(0x02);
-    rgb_conv.push_back(0x02);
-    rgb_conv.push_back(0x02);
-    rgb_conv.push_back(0x03);
-    rgb_conv.push_back(0x03);
-    rgb_conv.push_back(0x03);
-    rgb_conv.push_back(0x04);
-    rgb_conv.push_back(0x04);
-    rgb_conv.push_back(0x04);
-    rgb_conv.push_back(0x05);
-    rgb_conv.push_back(0x05);
-    rgb_conv.push_back(0x05);
-    rgb_conv.push_back(0x06);
-    rgb_conv.push_back(0x06);
-    rgb_conv.push_back(0x06);
-    rgb_conv.push_back(0x07);
-    rgb_conv.push_back(0x07);
-    rgb_conv.push_back(0x07);
-    rgb_conv.push_back(0x08);
-    rgb_conv.push_back(0x08);
-    rgb_conv.push_back(0x08);
-    rgb_conv.push_back(0x09);
-    rgb_conv.push_back(0x09);
-    rgb_conv.push_back(0x09);
-    
-    unsigned short ancho_in = 3;
-    unsigned short alto_in = 3;
+    rgb_reord();
     
     unsigned char jpg_reint = 0x06;
     
@@ -73,7 +27,7 @@ int main()
     if (jpg_reint == 0x06)
     {
         std::string rgb_conv_2 = rgb_conv;
-        unsigned short iter_lin = 0;
+        unsigned int iter_lin = 0;
         
         for (unsigned short columnas_x = 0; columnas_x < ancho_in; columnas_x++)
         {
@@ -126,7 +80,7 @@ int main()
     if (jpg_reint == 0x08)
     {
         std::string rgb_conv_2 = rgb_conv;
-        unsigned short iter_lin = 0;
+        unsigned int iter_lin = 0;
         
         for (unsigned short columnas_x = 0; columnas_x < ancho_in; columnas_x++)
         {
