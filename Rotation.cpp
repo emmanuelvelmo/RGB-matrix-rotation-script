@@ -35,12 +35,12 @@ int main()
             {
                 for (unsigned short cont_rgb = 0; cont_rgb < 3; cont_rgb++)
                 {
-                    rgb_conv[iter_lin + cont_rgb] = rgb_conv_2[(ancho_in * alto_in * 3) - (ancho_in * 3) - (filas_y * ancho_in * 3) + (columnas_x * 3) + cont_rgb];
+                    rgb_conv[iter_lin] = rgb_conv_2[(ancho_in * alto_in * 3) - (ancho_in * 3) - (filas_y * ancho_in * 3) + (columnas_x * 3) + cont_rgb];
+                    
+                    iter_lin++;
                 }
                 
-                iter_lin++;
-                
-                std::cout << short(rgb_conv[iter_lin]) << " ";
+                std::cout << short(rgb_conv[iter_lin - 3]) << " ";
             }
             
             std::cout << std::endl;
@@ -88,12 +88,12 @@ int main()
             {
                 for (unsigned short cont_rgb = 0; cont_rgb < 3; cont_rgb++)
                 {
-                    rgb_conv[iter_lin + cont_rgb] = rgb_conv_2[(ancho_in * 3) - 3 + (filas_y * ancho_in * 3) - (columnas_x * 3) + cont_rgb];
+                    rgb_conv[iter_lin] = rgb_conv_2[(ancho_in * 3) - 3 + (filas_y * ancho_in * 3) - (columnas_x * 3) + cont_rgb];
+                    
+                    iter_lin++;
                 }
                 
-                iter_lin++;
-                
-                std::cout << short(rgb_conv[iter_lin]) << " ";
+                std::cout << short(rgb_conv[iter_lin - 3]) << " ";
             }
             
             std::cout << std::endl;
